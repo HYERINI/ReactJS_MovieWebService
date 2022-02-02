@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 버튼을 몇 번 클릭했는지 세는 어플</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- React를 쓰기 위해서 react와 react dom을 import한다-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+
+    //const로 만들어줬던 걸 function으로 만들어준다.
+    function Title() {
+        return(
+            <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+                Hello I'm a title 
+            </h3>
+        )
+    };
+
+    //const로 만들어줬던 걸 function으로 만들어준다.
+    function Button(){
+        return (
+            <button style={{backgroundColor: "tomato",}} onClick= {() => console.log("I'm clicked")}>
+            Click me!
+        </button>
+        )
+    };
+
+    const container = (
+        <div>
+            // 반드시 대문자로 적을 것
+            <Title />
+            <Button />
+        </div>
+    );
+
+    ReactDOM.render(container, root);
+</script>
+
+</html>

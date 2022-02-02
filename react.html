@@ -1,0 +1,26 @@
+<!-- react 해보기-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 해보기</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- React를 쓰기 위해서 react와 react dom을 import한다-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    // root id를 갖는 div 태그를 가져온다.
+    const root = document.getElementById("root");
+    // span 태그를 형성한다.
+    const span = React.createElement("span", {id:"sexy-span", style: {color: "red"}}, "Hello I'm a span");
+    // react element를 가지고 HTML로 만들어 배치한다.
+    ReactDOM.render(span, root);
+</script>
+
+</html>

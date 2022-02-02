@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React 시작해보기</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- React를 쓰기 위해서 react와 react dom을 import한다-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    //property 부분에 eventlistener을 넣을 수 있다
+    const root = document.getElementById("root"); //div 태그 가져오고
+    const span = React.createElement("span", {onMouseEnter: () => console.log("mouse enter")}, "Hello I'm a span"); //span 태그 만들어서 "" 넣고
+    const btn = React.createElement("button", {onClick: () => document.write("I'm clicked"), style: {backgroundColor: "tomato"}}, "Click me"); //button 태그 만들어서 "" 넣고
+    const container = React.createElement("div", null, [span, btn]); //div 태그 안에 span, btn 넣고
+    ReactDOM.render(container, root); //container안에 span, btn 들어있는 button 태그 넣는다
+</script>
+</html>
