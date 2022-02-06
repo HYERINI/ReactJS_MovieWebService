@@ -1,43 +1,48 @@
+<!--banana와 fontSize prop이 반드시 포함되어있어야 함-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prop 배우기</title>
+    <title>proptype 응용하기</title>
 </head>
 <body>
     <div id="root"></div>
 </body>
 <!-- React를 쓰기 위해서 react와 react dom을 import한다-->
-<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script type="text/babel">
-	function Btn({banana, onClick}) {
-        console.log(banana, "was rendered");
-        return <button 
-            onClick={onClick}
-            style = {{ 
+    function Btn({banana, fontSize = 12}) {
+        return <button style = {{ 
             backgroundColor : "tomato",
             color: "white",
             padding: "10px 20px",
             border: 0, 
             borderRadius: 10,
+            fontSize,
             }}>{banana} </button>;
     }
 
-    const MemorizedBtn = React.memo(Btn)
+    Btn.propTypes = {
+        //prop이름 : PropTypes.자료형
+        //isRequired가 붙은 prop은 무조건 포함되어있어야 함
+        banana: PropTypes.string.isRequired,
+        fontSize: PropTypes.number,
+    }
+
     function App() {
         //value의 초기값을 "Save Changes"로 설정
         //value를 사용할 수 있는 이름은 setValue
         //changeValue는 setValue함수를 사용해서 value값을 변경한다.
-        const [value, setValue] = React.useState("Save Changes");
-        const changeValue = () => setValue("Revert Changes");
         return (
             <div>
-                <MemorizedBtn banana= {value} onClick={changeValue}/>
-                <MemorizedBtn banana="Continue" />
+                <Btn banana= "Save Changes" fontSize={18}/>
+                <Btn banana={"Continue"} />
             </div>
         );
     }
