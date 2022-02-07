@@ -1,0 +1,64 @@
+<!--banana와 fontSize prop이 반드시 포함되어있어야 함-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proptype 응용하기</title>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+<!-- React를 쓰기 위해서 react와 react dom을 import한다-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script type="text/babel">
+    function Footer() {
+        return (
+            <footer>
+                <div id="footer1">
+                    <h2>SBC</h2>
+                    <h3>Search Boot Camp</h3>
+                    <p>최근 코로나로 정보화시대가 더욱 가속화가 됐고 많은 사람들이 <br/>
+                        IT, SW 분야에 뛰어들고 있습니다. 그로 인해 부트 캠프 또한 <br/>
+                        많이 생겨나고 있습니다. 이런 적지 않은 수의 부트 캠프를 쉽게 <br/>
+                        비교할 수 있는 서비스를 제공하고자 프로젝트를 시작하였습니다.</p>
+                </div>
+                <div id="frontMember">
+                    <h3>Front</h3>
+                    <p>권은빈 DSWU <br/>
+                        신영한 KIT <br/>
+                        안재현 KIT <br />
+                        이수화 KIt <br/>
+                        이혜린 SMU </p>
+                </div>
+                <div id="backMember">
+                    <h3>Back</h3>
+                    <p>구현우 KIT <br /> 
+                        김현빈 SMU <br/> 
+                        박보성 HUFS <br/> 
+                        이서현 KIT <br/> 
+                        최혁순 KWU </p>
+                </div>
+            </footer>
+        );
+    }
+
+    function App() {
+        //value의 초기값을 "Save Changes"로 설정
+        //value를 사용할 수 있는 이름은 setValue
+        //changeValue는 setValue함수를 사용해서 value값을 변경한다.
+        return (
+            <div>
+                <Footer />
+            </div>
+        );
+    }
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />, root);
+</script>
+</html>
